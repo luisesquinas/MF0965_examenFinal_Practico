@@ -1,30 +1,34 @@
 #include <iostream>
-#include <cstdlib>
-#include <cmath>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
-int main() {
-    cout << "Content-type: text/html\n\n";
-
-    // Obtén el parámetro de la URL
-    string query = getenv("QUERY_STRING");
-    string numberStr = query.substr(query.find("numero=") + 7);
-    double numero = stod(numberStr); // Convertir el número de string a double
-
-    double resultado = numero / 25;
-    int resultadoFinal;
-
-    // Lógica de redondeo
-    if (resultado - floor(resultado) <= 0.2) {
-        resultadoFinal = floor(resultado); // Redondear hacia abajo
-    } else {
-        resultadoFinal = ceil(resultado); // Redondear hacia arriba
+char calcularLetraDNI(const string& dni) {
+    if (dni.length() != 8) {
+        throw invalid_argument("El DNI debe tener 8 dígitos.");
     }
 
-    // Mostrar el resultado
-    cout << "<html><body>Resultado: " << resultadoFinal << "</body></html>";
+    long dniNumber = stoul(dni);
+    int mod = dniNumber % 23;
+
+    const string letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+
+    return letras[mod];
+}
+
+int main() {
+    string dni;
+    cout << "Introduce el DNI sin letra: ";
+    cin >> dni;
+
+    try {
+        char letra = calcularLetraDNI(dni);
+        string dniCompleto = dni + letra;
+        cout << "DNI completo: " << dniCompleto << endl;
+    } catch (const exception& e) {
+        cerr << "Error: " << e.what() << endl;
+    }
 
     return 0;
 }
-

@@ -11,15 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const horas = parseInt(numero, 10);
             const resultado = horas / 25;
 
-            // Redondeo según la lógica especificada
             let resultadoFinal;
             if (resultado - Math.floor(resultado) <= 0.2) {
-                resultadoFinal = Math.floor(resultado); // Redondear hacia abajo
+                resultadoFinal = Math.floor(resultado);
             } else {
-                resultadoFinal = Math.ceil(resultado); // Redondear hacia arriba
+                resultadoFinal = Math.ceil(resultado);
             }
 
-            // Mostrar el resultado con "ECTS"
             resultadoDiv.textContent = `Resultado: ${resultadoFinal} ECTS`;
         } else {
             alert("El campo no puede estar vacío.");
