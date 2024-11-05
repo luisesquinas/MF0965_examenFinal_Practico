@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversión horas/ECTS</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        h1 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: white;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            font-weight: bold;
+            color: black;
+            margin-bottom: 0;
+            max-width: 250px;
+            display: inline-block;
+            text-align: center; /* Centrar el texto dentro del input */
+        }
+        input::placeholder {
+            color: lightgray;
+            text-align: center; /* Centrar el texto del placeholder */
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 5px;
+        }
+        .btn {
+            height: 40px;
+            margin: 0 5px;
+            border: 1px solid #5a5a5a;
+            padding: 0 40px;
+        }
+        #resultado {
+            margin-bottom: 10px;
+            min-height: 30px; /* Reservar espacio para el resultado */
+        }
+        .content-box {
+            background-color: #f5f5dc;
+            padding: 20px; /* Relleno interno */
+            border-radius: 8px;
+            max-width: 400px; /* Ancho máximo del recuadro */
+            margin: auto;
+            text-align: center;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            height: 160px; /* Altura reducida del recuadro */
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <h1 class="text-center">Conversión horas/ECTS</h1>
+    </header>
+
+    <main class="container">
+        <div class="content-box">
+            <form id="registroNumero">
+                <div id="resultado" class="m-2"></div>
+                <div class="input-container">
+                    <input type="text" id="numero" class="form-control m-2" placeholder="Introduce número de horas" required>
+                </div>
+                <div class="btn-container">
+                    <input type="submit" class="btn btn-primary" value="CALCULAR">
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
